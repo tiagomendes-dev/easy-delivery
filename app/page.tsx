@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <main>
+    <main className="">
       <div className="mx-3">
         <Suspense fallback={<TabsSkeleton />}>
           <ProductsTab />

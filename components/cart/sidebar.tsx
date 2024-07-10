@@ -33,7 +33,7 @@ const CartSidebar = () => {
               {cart.length}
             </span>
           )}
-          <ShoppingCart className="mr-2 h-6 w-6" />
+          <ShoppingCart className="mr-2" color="#facc15" size={18} />
         </Button>
       </SheetTrigger>
       <SheetContent className="flex flex-col justify-between overflow-scroll">
