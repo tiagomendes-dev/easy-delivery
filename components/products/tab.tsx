@@ -15,28 +15,67 @@ const ProductsTab = async () => {
 
   const tabs = [
     {
+      title: "Todos",
+      value: "todos",
+      products: products,
+    },
+    {
       title: "Pizza",
       value: "pizza",
-      products: products.filter((item) => item.category === "pizza"),
+      products: products.filter((item) => item.category === "Pizza"),
     },
     {
-      title: "Petisco",
-      value: "petisco",
-      products: products.filter((item) => item.category === "petisco"),
+      title: "Hambúrguer",
+      value: "hambúrguer",
+      products: products.filter((item) => item.category === "Hambúrguer"),
     },
     {
-      title: "Bebida",
-      value: "bebida",
-      products: products.filter((item) => item.category === "bebida"),
+      title: "Doces",
+      value: "doces",
+      products: products.filter((item) => item.category === "Doces"),
+    },
+    {
+      title: "Combos",
+      value: "combos",
+      products: products.filter((item) => item.category === "Combos"),
+    },
+    {
+      title: "Salgados",
+      value: "salgados",
+      products: products.filter((item) => item.category === "Salgados"),
+    },
+    {
+      title: "Bebidas",
+      value: "bebidas",
+      products: products.filter((item) => item.category === "Bebidas"),
+    },
+    {
+      title: "Combos Japoneses",
+      value: "combos japoneses",
+      products: products.filter((item) => item.category === "Combos Japoneses"),
+    },
+    {
+      title: "Combos Árabes",
+      value: "combos árabes",
+      products: products.filter((item) => item.category === "Combos Árabes"),
+    },
+    {
+      title: "Combos Italianos",
+      value: "combos italianos",
+      products: products.filter((item) => item.category === "Combos Italianos"),
     },
   ];
 
   return (
-    <Tabs defaultValue="pizza">
-      <TabsList className="flex">
+    <Tabs defaultValue="todos">
+      <TabsList className="flex gap-4">
         {tabs.map((item) => (
-          <TabsTrigger key={item.value} value={item.value} className="flex-1">
-            {item.title}
+          <TabsTrigger
+            key={item.value}
+            value={item.value}
+            className="rounded-full w-10 h-10"
+          >
+            A
           </TabsTrigger>
         ))}
       </TabsList>
