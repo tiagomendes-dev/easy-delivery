@@ -1,5 +1,7 @@
 "use client";
 
+import { useCartStore } from "@/app/stores/cart-store";
+import { Product } from "@/app/types/product";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
 import {
@@ -9,8 +11,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useToast } from "@/components/ui/use-toast";
-import { useCartStore } from "@/stores/cart-store";
-import { Product } from "@/types/product";
 import Image from "next/image";
 
 type Props = {

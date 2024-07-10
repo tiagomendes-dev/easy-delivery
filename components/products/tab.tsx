@@ -1,8 +1,8 @@
+import { getAllProducts } from "@/app/services/product";
+import { Product } from "@/app/types/product";
 import { ProductEmpty } from "@/components/products/empty";
 import { ProductItem } from "@/components/products/item";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getAllProducts } from "@/services/product";
-import { Product } from "@/types/product";
 
 type Tab = {
   title: string;

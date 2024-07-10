@@ -1,6 +1,6 @@
+import { GenerateMessage } from "@/app/lib/generate-message";
+import { useCheckoutStore } from "@/app/stores/checkout-store";
 import { Button } from "@/components/ui/button";
-import { GenerateMessage } from "@/lib/generate-message";
-import { useCheckoutStore } from "@/stores/checkout-store";
 import Link from "next/link";
 
 export const StepFinish = () => {

@@ -1,19 +1,18 @@
+import { useCheckoutStore } from "@/app/stores/checkout-store";
+import { CheckoutSteps } from "@/app/types/checkout-steps";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { useCheckoutStore } from "@/stores/checkout-store";
-import { CheckoutSteps } from "@/types/checkout-steps";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Dispatch, SetStateAction } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "@/components/ui/select";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Dispatch, SetStateAction } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const formSchema = z.object({
   paymentMethod: z.string().min(2, "Informe a forma de pagamento"),

@@ -1,5 +1,6 @@
 "use client";
 
+import { CheckoutSteps } from "@/app/types/checkout-steps";
 import { StepAddress } from "@/components/checkout/step-address";
 import { StepFinish } from "@/components/checkout/step-finish";
 import { StepPayment } from "@/components/checkout/step-payment";
@@ -11,7 +12,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
-import { CheckoutSteps } from "@/types/checkout-steps";
 import { useState } from "react";
 
 type Props = {

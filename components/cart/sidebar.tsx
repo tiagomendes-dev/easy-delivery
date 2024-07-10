@@ -1,5 +1,6 @@
 "use client";
 
+import { useCartStore } from "@/app/stores/cart-store";
 import { CartItem } from "@/components/cart/item";
 import { CheckoutDialog } from "@/components/checkout/dialog";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useCartStore } from "@/stores/cart-store";
 import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
 
