@@ -9,7 +9,7 @@ export default function Logo() {
       className="text-primary font-bold flex items-center gap-2 text-xl select-none"
     >
       <Image src={logoImage} alt="Logo Wallet" width={32} height={32} />
-      LojaWPP
+      Easy Delivery
     </Link>
   );
 }
