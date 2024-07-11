@@ -68,14 +68,10 @@ const ProductsTab = async () => {
 
   return (
     <Tabs defaultValue="todos">
-      <TabsList className="flex gap-4">
+      <TabsList className="flex gap-4 bg-primary/20 overflow-x-scroll overflow-y-hidden pt-6 pb-10 scrollbar">
         {tabs.map((item) => (
-          <TabsTrigger
-            key={item.value}
-            value={item.value}
-            className="rounded-full w-10 h-10"
-          >
-            A
+          <TabsTrigger key={item.value} value={item.value}>
+            {item.title}
           </TabsTrigger>
         ))}
       </TabsList>

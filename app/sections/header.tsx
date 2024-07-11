@@ -5,7 +5,7 @@ import { ShoppingCartIcon } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="shadow py-2">
+    <header className="shadow py-2 border-b border-black/5">
       <div className="flex items-center justify-between container">
         <Logo />
 

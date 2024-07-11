@@ -62,7 +62,7 @@ export const ProductItem = ({ item }: Props) => {
         </TooltipProvider>
       </div>
       <div className="hidden absolute top-2 right-2 group-hover:block transition">
-        <Button>Adicionar</Button>
+        <Button onClick={handleAddToCart}>Adicionar</Button>
       </div>
     </div>
   );
