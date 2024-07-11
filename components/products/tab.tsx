@@ -24,21 +24,21 @@ const ProductsTab = async () => {
       value: "pizza",
       products: products.filter((item) => item.category === "Pizza"),
     },
-    {
-      title: "Hambúrguer",
-      value: "hambúrguer",
-      products: products.filter((item) => item.category === "Hambúrguer"),
-    },
+    // {
+    //   title: "Hambúrguer",
+    //   value: "hambúrguer",
+    //   products: products.filter((item) => item.category === "Hambúrguer"),
+    // },
     {
       title: "Doces",
       value: "doces",
       products: products.filter((item) => item.category === "Doces"),
     },
-    {
-      title: "Combos",
-      value: "combos",
-      products: products.filter((item) => item.category === "Combos"),
-    },
+    // {
+    //   title: "Combos",
+    //   value: "combos",
+    //   products: products.filter((item) => item.category === "Combos"),
+    // },
     {
       title: "Salgados",
       value: "salgados",
@@ -49,28 +49,28 @@ const ProductsTab = async () => {
       value: "bebidas",
       products: products.filter((item) => item.category === "Bebidas"),
     },
-    {
-      title: "Combos Japoneses",
-      value: "combos japoneses",
-      products: products.filter((item) => item.category === "Combos Japoneses"),
-    },
-    {
-      title: "Combos Árabes",
-      value: "combos árabes",
-      products: products.filter((item) => item.category === "Combos Árabes"),
-    },
-    {
-      title: "Combos Italianos",
-      value: "combos italianos",
-      products: products.filter((item) => item.category === "Combos Italianos"),
-    },
+    // {
+    //   title: "Combos Japoneses",
+    //   value: "combos japoneses",
+    //   products: products.filter((item) => item.category === "Combos Japoneses"),
+    // },
+    // {
+    //   title: "Combos Árabes",
+    //   value: "combos árabes",
+    //   products: products.filter((item) => item.category === "Combos Árabes"),
+    // },
+    // {
+    //   title: "Combos Italianos",
+    //   value: "combos italianos",
+    //   products: products.filter((item) => item.category === "Combos Italianos"),
+    // },
   ];
 
   return (
     <Tabs defaultValue="todos">
-      <TabsList className="flex gap-4 bg-primary/20 overflow-x-scroll overflow-y-hidden pt-6 pb-10 scrollbar">
+      <TabsList className="flex gap-4 bg-primary/20  overflow-y-hidden pt-6 py-10 scrollbar">
         {tabs.map((item) => (
-          <TabsTrigger key={item.value} value={item.value}>
+          <TabsTrigger key={item.value} value={item.value} className="">
             {item.title}
           </TabsTrigger>
         ))}
