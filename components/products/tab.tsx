@@ -4,12 +4,6 @@ import { ProductEmpty } from "@/components/products/empty";
 import { ProductItem } from "@/components/products/item";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-type Tab = {
-  title: string;
-  value: string;
-  products: Product[];
-};
-
 const ProductsTab = async () => {
   const products = await getAllProducts();
 

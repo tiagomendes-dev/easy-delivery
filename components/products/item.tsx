@@ -2,20 +2,18 @@
 
 import { useCartStore } from "@/app/stores/cart-store";
 import { Product } from "@/app/types/product";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ToastAction } from "@/components/ui/toast";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
-import { PlusIcon } from "lucide-react";
-import Image from "next/image";
-
-import { Separator } from "../ui/separator";
+import { useState } from "react";
 
 type Props = {
   item: Product;
@@ -34,58 +32,62 @@ export const ProductItem = ({ item }: Props) => {
     });
   }
 
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
   return (
-    <div className="rounded-lg relative group transition">
-      <div className="h-48 w-full shadow bg-primary/20 rounded-lg" />
-      <div className="pt-2 pb-3">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-sm line-clamp-1">{item.name}</h3>
-            <p className="text-black font-semibold text-sm">
-              {item.price.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </p>
+    <Dialog>
+      <DialogTrigger asChild>
+        <div
+          className="rounded-lg relative group transition"
+          onClick={() => setSelectedProduct(item)}
+        >
+          <div className="h-48 w-full shadow bg-primary/20 rounded-lg" />
+          <div className="pt-2 pb-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-sm line-clamp-1">{item.name}</h3>
+                <p className="text-black font-semibold text-sm">
+                  {item.price.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="hidden absolute bottom-16 left-1 group-hover:block transition">
-        <Button onClick={handleAddToCart} className="rounded-full p-2 bg-white">
-          <PlusIcon color="#000" size={24} />
-        </Button>
-      </div>
-    </div>
-    // <div className="rounded-lg shadow relative group hover:shadow-lg transition">
-    //   <div className="h-32 w-full bg-primary/20 rounded-t-lg" />
-    //   <div className="px-4 pt-4 h-32">
-    //     <div className="flex items-center justify-between">
-    //       <div>
-    //         <h3 className="font-bold text-2xl line-clamp-1">{item.name}</h3>
-    //         <p className="text-primary font-black text-xl">
-    //           {item.price.toLocaleString("pt-BR", {
-    //             style: "currency",
-    //             currency: "BRL",
-    //           })}
-    //         </p>
-    //       </div>
-    //       <Badge variant="secondary">{item.category}</Badge>
-    //     </div>
-    //     {/* <Separator className="my-2" />
-    //     <TooltipProvider>
-    //       <Tooltip>
-    //         <TooltipTrigger className="text-left">
-    //           <p className="text-black/40 line-clamp-1">{item.ingredients}</p>
-    //         </TooltipTrigger>
-    //         <TooltipContent side="bottom">
-    //           <p>{item.ingredients}</p>
-    //         </TooltipContent>
-    //       </Tooltip>
-    //     </TooltipProvider> */}
-    //   </div>
-    //   {/* <div className="hidden absolute top-2 right-2 group-hover:block transition">
-    //     <Button onClick={handleAddToCart}>Adicionar</Button>
-    //   </div> */}
-    // </div>
+      </DialogTrigger>
+      <DialogContent>
+        {selectedProduct && (
+          <>
+            <DialogHeader className="">
+              <DialogTitle className="my-4 text-center">
+                {selectedProduct.name}
+              </DialogTitle>
+              <DialogDescription>
+                <div className="flex items-center flex-col gap-4">
+                  <div className="h-48 w-full shadow bg-primary/20 rounded-lg" />
+
+                  {selectedProduct.ingredients}
+                </div>
+              </DialogDescription>
+            </DialogHeader>
+            <div className="mt-4">
+              <p className="text-lg font-bold text-center mb-4">
+                {selectedProduct.price.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </p>
+
+              <p className="text-black font-semibold text-sm"></p>
+              <Button onClick={handleAddToCart} className="w-full">
+                Adicionar ao carrinho
+              </Button>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
   );
 };
