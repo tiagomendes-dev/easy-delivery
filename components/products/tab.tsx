@@ -68,7 +68,7 @@ const ProductsTab = async () => {
 
   return (
     <Tabs defaultValue="todos">
-      <TabsList className="flex gap-4 bg-primary/20  overflow-y-hidden pt-6 py-10 scrollbar">
+      <TabsList className="flex scrollbar">
         {tabs.map((item) => (
           <TabsTrigger key={item.value} value={item.value} className="">
             {item.title}
@@ -78,10 +78,17 @@ const ProductsTab = async () => {
       {tabs.map((item) => (
         <TabsContent key={item.value} value={item.value} className="mt-6">
           {item.products.length > 0 && (
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
-              {item.products.map((product) => (
-                <ProductItem key={product.id} item={product} />
-              ))}
+            // <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
+            //   {item.products.map((product) => (
+            //     <ProductItem key={product.id} item={product} />
+            //   ))}
+            // </div>
+            <div>
+              <div className="grid grid-cols-2 gap-2">
+                {item.products.map((product) => (
+                  <ProductItem key={product.id} item={product} />
+                ))}
+              </div>
             </div>
           )}
 

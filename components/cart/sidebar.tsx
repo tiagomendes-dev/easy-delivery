@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ShoppingCart } from "lucide-react";
+import { InboxIcon } from "lucide-react";
 import { useState } from "react";
 
 const CartSidebar = () => {
@@ -27,13 +27,13 @@ const CartSidebar = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="flex items-center gap-1" variant="link">
-          {cart.length > 0 && (
+        <Button className="flex items-center p-0 m-0" variant="link">
+          {/* {cart.length > 0 && (
             <span className="bg-black text-white dark:bg-white dark:text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
               {cart.length}
             </span>
-          )}
-          <ShoppingCart className="mr-2" color="#facc15" size={18} />
+          )} */}
+          <InboxIcon color="#000" size={24} />
         </Button>
       </SheetTrigger>
       <SheetContent className="flex flex-col justify-between overflow-scroll">

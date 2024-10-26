@@ -12,6 +12,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useToast } from "@/components/ui/use-toast";
+import { PlusIcon } from "lucide-react";
 import Image from "next/image";
 
 import { Separator } from "../ui/separator";
@@ -34,36 +35,57 @@ export const ProductItem = ({ item }: Props) => {
   }
 
   return (
-    <div className="rounded-lg shadow relative group hover:shadow-lg transition">
-      <div className="h-32 w-full bg-primary/20 rounded-t-lg" />
-      <div className="px-4 pt-4 h-32">
+    <div className="rounded-lg relative group transition">
+      <div className="h-48 w-full shadow bg-primary/20 rounded-lg" />
+      <div className="pt-2 pb-3">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-bold text-2xl line-clamp-1">{item.name}</h3>
-            <p className="text-primary font-black text-xl">
+            <h3 className="text-sm line-clamp-1">{item.name}</h3>
+            <p className="text-black font-semibold text-sm">
               {item.price.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
             </p>
           </div>
-          <Badge variant="secondary">{item.category}</Badge>
         </div>
-        <Separator className="my-2" />
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger className="text-left">
-              <p className="text-black/40 line-clamp-1">{item.ingredients}</p>
-            </TooltipTrigger>
-            <TooltipContent side="bottom">
-              <p>{item.ingredients}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
       </div>
-      <div className="hidden absolute top-2 right-2 group-hover:block transition">
-        <Button onClick={handleAddToCart}>Adicionar</Button>
+      <div className="hidden absolute bottom-16 left-1 group-hover:block transition">
+        <Button onClick={handleAddToCart} className="rounded-full p-2 bg-white">
+          <PlusIcon color="#000" size={24} />
+        </Button>
       </div>
     </div>
+    // <div className="rounded-lg shadow relative group hover:shadow-lg transition">
+    //   <div className="h-32 w-full bg-primary/20 rounded-t-lg" />
+    //   <div className="px-4 pt-4 h-32">
+    //     <div className="flex items-center justify-between">
+    //       <div>
+    //         <h3 className="font-bold text-2xl line-clamp-1">{item.name}</h3>
+    //         <p className="text-primary font-black text-xl">
+    //           {item.price.toLocaleString("pt-BR", {
+    //             style: "currency",
+    //             currency: "BRL",
+    //           })}
+    //         </p>
+    //       </div>
+    //       <Badge variant="secondary">{item.category}</Badge>
+    //     </div>
+    //     {/* <Separator className="my-2" />
+    //     <TooltipProvider>
+    //       <Tooltip>
+    //         <TooltipTrigger className="text-left">
+    //           <p className="text-black/40 line-clamp-1">{item.ingredients}</p>
+    //         </TooltipTrigger>
+    //         <TooltipContent side="bottom">
+    //           <p>{item.ingredients}</p>
+    //         </TooltipContent>
+    //       </Tooltip>
+    //     </TooltipProvider> */}
+    //   </div>
+    //   {/* <div className="hidden absolute top-2 right-2 group-hover:block transition">
+    //     <Button onClick={handleAddToCart}>Adicionar</Button>
+    //   </div> */}
+    // </div>
   );
 };
